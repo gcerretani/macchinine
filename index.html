@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#87ceeb">
+  <title>Macchinine - Scegli la tua auto!</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="selection-screen" class="screen active">
+    <h1>Scegli la tua macchinina!</h1>
+    <div id="car-cards">
+      <div class="car-card" data-car="mcqueen">
+        <div class="car-preview" data-preview="mcqueen"></div>
+        <h2>Saetta McQueen</h2>
+        <div class="stats">
+          <div class="stat">Velocità <span class="bar"><span style="width:80%;background:#e74c3c"></span></span></div>
+          <div class="stat">Sterzata <span class="bar"><span style="width:60%;background:#3498db"></span></span></div>
+        </div>
+      </div>
+      <div class="car-card" data-car="mater">
+        <div class="car-preview" data-preview="mater"></div>
+        <h2>Cricchetto</h2>
+        <div class="stats">
+          <div class="stat">Velocità <span class="bar"><span style="width:40%;background:#e74c3c"></span></span></div>
+          <div class="stat">Sterzata <span class="bar"><span style="width:90%;background:#3498db"></span></span></div>
+        </div>
+      </div>
+      <div class="car-card" data-car="storm"><div class="car-preview" data-preview="storm"></div>
+        <h2>Jackson Storm</h2>
+        <div class="stats">
+          <div class="stat">Velocità <span class="bar"><span style="width:100%;background:#e74c3c"></span></span></div>
+          <div class="stat">Sterzata <span class="bar"><span style="width:40%;background:#3498db"></span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="game-screen" class="screen">
+    <canvas id="game-canvas"></canvas>
+    <div id="hud">
+      <button id="home-btn" aria-label="Torna al menu">🏠</button>
+      <div id="lap-counter">Giro <span id="lap-num">1</span></div>
+    </div>
+    <div id="touch-left" class="touch-zone" aria-label="Sterza a sinistra">
+      <span class="arrow">◀</span>
+    </div>
+    <div id="touch-right" class="touch-zone" aria-label="Sterza a destra">
+      <span class="arrow">▶</span>
+    </div>
+    <div id="countdown"></div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
