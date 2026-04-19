@@ -47,7 +47,7 @@ export class Car {
     const startZ = 0;
     this.mesh.position.set(startX, 0, startZ);
     const tan = trackTangentAt(0);
-    this.heading = Math.atan2(tan.x, tan.z);
+    this.heading = Math.atan2(tan.z, tan.x);
     this.mesh.rotation.y = this.heading;
   }
 
@@ -96,7 +96,7 @@ export class Car {
       this.mesh.position.z += (dirZ / len) * push;
       // Also steer heading gently toward tangent
       const tan = trackTangentAt(near.angle);
-      const tangentHeading = Math.atan2(tan.x, tan.z);
+      const tangentHeading = Math.atan2(tan.z, tan.x);
       const diff = shortestAngle(tangentHeading - this.heading);
       this.heading += diff * Math.min(dt * 1.5, 0.5);
       this.wobble += dt * 10;
