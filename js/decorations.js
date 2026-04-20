@@ -71,7 +71,6 @@ export function buildDecorations() {
   const checkMat = new THREE.MeshLambertMaterial({ map: checkTex });
   const checkLine = new THREE.Mesh(checkGeo, checkMat);
   checkLine.position.set(TRACK.rx, 0.06, 0);
-  checkLine.rotation.y = -Math.PI / 2;
   group.add(checkLine);
 
   return { group, crabs, dolphins, trafficLight };

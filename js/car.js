@@ -47,8 +47,8 @@ export class Car {
     const startZ = 0;
     this.mesh.position.set(startX, 0, startZ);
     const tan = trackTangentAt(0);
-    this.heading = Math.atan2(tan.z, tan.x);
-    this.mesh.rotation.y = this.heading;
+    this.heading = Math.atan2(tan.x, tan.z);
+    this.mesh.rotation.y = this.heading - Math.PI / 2;
   }
 
   update(dt, input, racing) {
@@ -96,7 +96,7 @@ export class Car {
       this.mesh.position.z += (dirZ / len) * push;
       // Also steer heading gently toward tangent
       const tan = trackTangentAt(near.angle);
-      const tangentHeading = Math.atan2(tan.z, tan.x);
+      const tangentHeading = Math.atan2(tan.x, tan.z);
       const diff = shortestAngle(tangentHeading - this.heading);
       this.heading += diff * Math.min(dt * 1.5, 0.5);
       this.wobble += dt * 10;
@@ -108,7 +108,7 @@ export class Car {
     // Apply bounce for off-track wobble
     const bounceY = this.offTrack ? Math.abs(Math.sin(this.wobble)) * 0.1 : 0;
 
-    this.mesh.rotation.y = this.heading;
+    this.mesh.rotation.y = this.heading - Math.PI / 2;
     this.mesh.rotation.z = -steerInput * 0.06; // slight roll
     this.mesh.position.y = bounceY;
 
