@@ -166,7 +166,7 @@ export class Game {
     }
 
     // Crossed start/finish line: prev negative, now positive (CCW motion)
-    if (this.crossedHalf && prev < -0.05 && angle >= 0 && angle < Math.PI * 0.5) {
+    if (this.crossedHalf && prev < 0 && angle >= 0 && angle < Math.PI * 0.5) {
       this.lap++;
       this.updateLapDisplay();
       this.crossedHalf = false;
